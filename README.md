@@ -5,6 +5,17 @@ Functions for parsing, comparison, and manipulation of
 implement the actual spec, including proper comparisons on pre-release
 and build fields.
 
+## Installation
+
+`clj-semver` is available as a Maven artifact via
+[Clojars](https://clojars.org/grimradical/clj-semver).
+
+Use the following build dependency:
+
+    [grimradical/clj-semver "0.1.0-SNAPSHOT"]
+
+A non-snapshot release is forthcoming!
+
 ## Usage
 
 The main namespace for date-time operations in the `clj-semver`
