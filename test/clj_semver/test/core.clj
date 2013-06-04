@@ -22,9 +22,9 @@
          {:major 1 :minor 2 :patch 3 :pre-release "alpha" :build "build.1"}))
   (is (= (parse "1.2.3+alpha-build.1")
          {:major 1 :minor 2 :patch 3 :pre-release nil :build "alpha-build.1"}))
-  (is (thrown? AssertionError (parse "1.2.3-alpha!@.12")))
-  (is (thrown? AssertionError (parse "1.2")))
-  (is (thrown? AssertionError (parse "1.a.3+aewf-123"))))
+  (is (thrown? IllegalArgumentException (parse "1.2.3-alpha!@.12")))
+  (is (thrown? IllegalArgumentException (parse "1.2")))
+  (is (thrown? IllegalArgumentException (parse "1.a.3+aewf-123"))))
 
 (deftest comparison
   ;; These are taken from the semver spec

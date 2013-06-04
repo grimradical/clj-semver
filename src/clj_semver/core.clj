@@ -26,11 +26,19 @@
        (or (nil? (:build v))
            (string? (:build v)))))
 
+(defn valid-format?
+  "Checks the string `s` for semantic versioning formatting"
+  [s]
+  (let [response (re-matches pattern s)]
+    (when (nil? response)
+      (throw (new IllegalArgumentException "Not a valid version format")))
+    response))
+
 (defn parse
   "Parses string `s` into a version map"
   [s]
   {:pre  [(string? s)
-          (re-matches pattern s)]
+          (valid-format? s)]
    :post [(valid? %)]}
   (let [[[_ major minor patch pre-release build]] (re-seq pattern s)]
     {:major (try-parse-int major)
