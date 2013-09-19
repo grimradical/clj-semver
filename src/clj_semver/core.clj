@@ -31,7 +31,7 @@
   [s]
   (let [response (re-matches pattern s)]
     (when (nil? response)
-      (throw (new IllegalArgumentException (str s  "is not a valid semantic version number"))))
+      (throw (new IllegalArgumentException (format "%s is not a valid semantic version number" s))))
     response))
 
 (defn parse
