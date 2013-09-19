@@ -12,7 +12,7 @@ and build fields.
 
 Use the following build dependency:
 
-    [grimradical/clj-semver "0.1.0-SNAPSHOT"]
+    [grimradical/clj-semver "0.3.0-SNAPSHOT"]
 
 A non-snapshot release is forthcoming!
 
