@@ -29,10 +29,7 @@
 (defn valid-format?
   "Checks the string `s` for semantic versioning formatting"
   [s]
-  (let [response (re-matches pattern s)]
-    (when (nil? response)
-      (throw (new IllegalArgumentException (format "%s is not a valid semantic version number" s))))
-    response))
+  (if (nil? (re-matches pattern s)) false true))
 
 (defn parse
   "Parses string `s` into a version map"
