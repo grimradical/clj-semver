@@ -88,3 +88,9 @@
   "Is version a the same as version b?"
   [a b]
   (zero? (cmp a b)))
+
+(defn between?
+  "Is the version c between the versions a and b inclusive."
+  [a b c]
+  (and (>= (semver/cmp a b) 0)
+       (<= (semver/cmp b c) 0)))
