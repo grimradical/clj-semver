@@ -1,4 +1,4 @@
-(defproject grimradical/clj-semver "0.3.0"
+(defproject grimradical/clj-semver "0.4.0-SNAPSHOT"
   :description "Parsing, comparison, and manipulation of semantic version strings"
   :url "http://github.com/grimradical/clj-semver"
   :license {:name "Apache License 2.0"
