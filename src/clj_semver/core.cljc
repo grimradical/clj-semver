@@ -7,9 +7,11 @@
   "Attempt to parse `o` to an int, returning `o` if that fails or the
   parsed version of `o` if successful."
   [o]
-  (try
-    (Integer/parseInt o)
-    (catch NumberFormatException e o)))
+  #?(:clj (try
+            (Integer/parseInt o)
+            (catch NumberFormatException e o))
+     :cljs (let [i (js/parseInt o)]
+             (if (js/isNaN i) o i))))
 
 (defn valid?
   "Checks if the supplied version map is valid or not"
@@ -58,10 +60,7 @@
   they're the same version, and 1 if a is newer than b"
   [a b]
   {:post [(number? %)]}
-  (let [try-parse-int #(try
-                         (Integer/parseInt %)
-                         (catch NumberFormatException e %))
-        key-for-ident #(when %
+  (let [key-for-ident #(when %
                          (into [] (map try-parse-int (split % #"\."))))
         key           (juxt :major
                             :minor
